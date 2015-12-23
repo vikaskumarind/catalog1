@@ -1,0 +1,37 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='catalogstyle.css') }}" />
+<h1> Catalog App <h1>
+</head>
+<body>
+    <div id="headerBar"></div>
+    <form align="right" name="form1" method="post" action="{{url_for('gdisconnect')}}">
+       <label class="logoutLblPos">
+       <input name="submit2" type="submit" id="submit2" style="color:black;background-color:red" value="Log out">
+      </label>
+    </form>
+
+    <div id="wrapper">
+       <div id="sideBar">
+           <h3>Categories</h3>
+            <font color="red">
+           {% for cat in categories %}
+              <a href= '{{url_for('showItems', category_name= cat.name)}}'>{{ cat.name }}</a>
+              <br>
+           {% endfor %}
+	       </font>
+ 	  </div>
+ 
+	  <div id="mainContent">
+           <h3>{{category_name}} Items ({{ rows }} items) </h3>
+           {% for i in items %}
+             <a href= '{{url_for('showItemDescription',category_name= category_name,item_title= i.title)}}'>{{ i.title }}</a>
+             <br>
+           {% endfor %}
+      </div>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='catalogstyle.css') }}" />
+<h1> Catalog App <h1>
+</head>
+
+<body>
+<div id="headerBar"></div>
+<form align="right" name="form1" method="post" action="{{url_for('gdisconnect')}}">
+  <label class="logoutLblPos">
+  <input name="submit2" type="submit" id="submit2" style="color:black;background-color:red" value="Log out">
+  </label>
+</form>
+
+<h1>Delete Item</h1>
+
+<form action= "{{url_for('deleteItem',item_title =item.title)}}" method = 'POST'>
+
+Are you sure you want to delete ?
+<br>
+<input type="submit" value="Submit"> 
+</form>
+
+
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='catalogstyle.css') }}" />
+<h1> Catalog App <h1>
+<!--MESSAGE FLASHING EXAMPLE -->
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+
+<ul>
+{% for message in messages %}
+  <li><strong>{{message}}</strong></li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+
+
+</head>
+<body>
+<div id="headerBar"></div>
+<form align="right" name="form1" method="post" action="{{url_for('gdisconnect')}}">
+  <label class="logoutLblPos">
+  <input name="submit2" type="submit" id="submit2" style="color:black;background-color:red" value="Log out">
+  </label>
+</form>
+
+<h1>New Item</h1>
+
+<form action= "{{url_for('addItem')}}" method = 'POST'>
+<h2> Name : </h2>
+<input name="title" type="text" >
+<h2> Description : </h2>
+<input name="description" type="text" >
+
+<h2> Category : </h2>
+
+{% for c in categories %}
+
+  <input type="radio" name="category" value="{{c.id}}" >{{c.name}}
+  <br>
+{% endfor %}
+
+  
+<input type="submit" value="Create"> 
+</form>
+
+</body>
+
+</html>

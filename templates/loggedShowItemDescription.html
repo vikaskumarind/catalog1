@@ -1,0 +1,29 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='catalogstyle.css') }}" />
+<h1> Catalog App <h1>
+</head>
+
+<body>
+
+<div id="headerBar"></div>
+
+
+<form align="right" name="form1" method="post" action="{{url_for('gdisconnect')}}">
+  <label class="logoutLblPos">
+  <input name="submit2" type="submit" id="submit2" style="color:black;background-color:red" value="Log out">
+  </label>
+</form>
+
+<h2>{{item.title}}</h2>
+<div>
+{{item.description}}
+</div>
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='catalogstyle.css') }}" />
+<h1> Catalog App <h1>
+<!--MESSAGE FLASHING EXAMPLE -->
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+
+<ul>
+{% for message in messages %}
+  <li><strong>{{message}}</strong></li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+
+
+</head>
+
+
+
+<body>
+<div id="headerBar"></div>
+<form align="right" name="form1" method="post" action="{{url_for('gdisconnect')}}">
+  <label class="logoutLblPos">
+  <input name="submit2" type="submit" id="submit2" style="color:black;background-color:red" value="Log out">
+  </label>
+</form>
+
+
+<h1>Edit Item</h1>
+
+<form action= "{{url_for('editItem',item_title =item.title)}}" method = 'POST'>
+<h2> Name : </h2>
+<input name="title" value ='{{item.title}}' type="text" >
+<h2> Description : </h2>
+<input name="description" value='{{item.description}}' type="text" >
+
+<h2> Category : </h2>
+<select name='category'>
+
+{% for c in categories %}
+
+  <option value="{{c.id}}" {% if c.id == item.category_id: %} selected {% endif %}> {{c.name}}</option>
+  <br>
+{% endfor %}
+
+</select>  
+
+
+<input type="submit" value="Edit"> 
+</form>
+
+
+</body>
+
+</html>

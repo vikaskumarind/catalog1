@@ -1,0 +1,34 @@
+
+.logoutLblPos{
+
+   position:fixed;
+   right:10px;
+   top:5px;
+}
+
+#headerBar {
+    height: 60px;
+    background: #A9BCF5;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: -1
+}
+
+#sideBar{
+    width:400px;
+    height:600px;
+    background:#A9BCF5;
+    display:block;
+    float:left;
+}
+
+#mainContent{
+    height:600px;
+	width:700px;
+    background:#BDBDBD;
+    display:block;
+    float:left;
+}
+
+
